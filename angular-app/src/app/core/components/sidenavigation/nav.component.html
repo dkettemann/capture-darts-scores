@@ -1,0 +1,96 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer [attr.role]="(screenWidth < 840) ? 'dialog' : 'navigation'"
+               [mode]="(screenWidth < 840) ? 'over' : 'side'" [opened]="screenWidth > 840"
+               class="sidenav"
+               fixedInViewport="true"
+  >
+
+    <div class="box no-select">
+
+      <div class="row header">
+        <mat-toolbar class="mat-header">
+          <h3 class="masthead-brand"
+          ><span class="navigation-title no-select" routerLink="/">Menu</span></h3>
+        </mat-toolbar>
+      </div>
+
+      <div class="row content">
+        <div class="mat-tree">
+          <mat-nav-list>
+
+            <h2 matSubheader> Default </h2>
+            <!-- (click)="drawer.close()" -->
+            <a *ngFor="let item of myWorkRoutes"
+               mat-list-item
+               routerLinkActive
+               #routerLinkActiveInstance="routerLinkActive"
+               [class.list-item-active]="routerLinkActiveInstance.isActive"
+               [routerLink]="[item.route]">
+
+              <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+              {{item.title}}
+            </a>
+
+            <mat-divider></mat-divider>
+
+
+            <h2 matSubheader> Anderes </h2>
+            <!-- (click)="drawer.close()" -->
+            <a *ngFor="let item of customerRoutes"
+               mat-list-item
+               routerLinkActive
+               #routerLinkActiveInstance="routerLinkActive"
+               [class.list-item-active]="routerLinkActiveInstance.isActive"
+               [routerLink]="[item.route]">
+
+              <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+              {{item.title}}
+            </a>
+
+
+          </mat-nav-list>
+        </div>
+      </div>
+
+      <div class="row footer text-center no-select">
+
+        <div class="light-border" style="padding-top: 30px;">
+          <p class="lead text-muted footer-heading">Mehr</p>
+          <div>
+
+            <div class="mat-tree">
+              <mat-nav-list>
+                <a *ngFor="let item of moreRoutes"
+                   mat-list-item
+                   routerLinkActive
+                   #routerLinkActiveInstance="routerLinkActive"
+                   [class.list-item-active]="routerLinkActiveInstance.isActive"
+                   [routerLink]="[item.route]">
+
+                  <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+                  {{item.title}}
+                </a>
+              </mat-nav-list>
+            </div>
+          </div>
+          <div style="margin-bottom: 25px; margin-top: 5px; margin-left: -20px;">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content id="content">
+
+    <div class="content-toolbar no-select" [ngClass]="{'large': !drawer.opened || (screenWidth < 840) }">
+      <app-navigation-bar></app-navigation-bar>
+    </div>
+
+    <div class="router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

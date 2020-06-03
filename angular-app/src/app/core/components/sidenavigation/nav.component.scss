@@ -1,0 +1,154 @@
+@import "../../../global/theme/theme";
+
+.sidenav-container {
+  height: 100%;
+}
+
+.navigation-title{
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.sidenav {
+  width: $navigation-width;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  top: 0;
+  z-index: 1;
+}
+
+
+.content-toolbar{
+  position: fixed;
+  width: 100%;
+  max-width: calc(100vw - 250px);
+  z-index: 998;
+  transition: max-width 0.24s;
+}
+
+.content-toolbar.large{
+  max-width: 100%;
+  transition: max-width $navigation-transition;
+}
+
+.router-outlet{
+  margin-top: $header-height;
+  //height: 93vh;
+}
+
+
+#content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Flexbox */
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.box .row {
+  margin-left: 0;
+  display: inline;
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+  /* The above is shorthand for:
+  flex-grow: 0,
+  flex-shrink: 1,
+  flex-basis: auto
+  */
+}
+
+.box .row.content {
+  flex: 1 1 auto;
+  margin-top: 10px;
+}
+
+.box .row.footer {
+  flex: 0 1 40px;
+  margin-bottom: 2vh;
+}
+
+.mat-tree-node {
+  margin-bottom: -10px;
+  margin-top: 10px;
+  list-style-type: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  flex: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.footer-heading {
+  display: block;
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+.header{
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Material Content Styling */
+
+.mat-toolbar.mat-primary {
+  //TODO: Toolbar background Color
+}
+
+
+
+::ng-deep.mat-list-item:hover {
+  background: rgba(63, 81, 181, 0.17) !important;
+}
+
+
+.row {
+  width: 100%;
+}
+
+.mat-toolbar.mat-primary {
+  //position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.sidenav-heading {
+  position: fixed !important;
+  width: 100%;
+}
+
+.mat-header {
+  background: $navigation-header !important;
+  height: $header-height;
+  //border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+
+
+
+@media only screen and (max-device-width: 840px){
+
+
+}
+
+
+
+
+
+
+
+

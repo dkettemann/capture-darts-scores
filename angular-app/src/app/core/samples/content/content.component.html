@@ -1,0 +1,53 @@
+<div style="text-align:center">
+  <h1>
+    Look at this
+  </h1>
+
+  <div>
+<!--    [height]="500" [width]="500" -->
+    <webcam id="webcam-container" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+            *ngIf="showWebcam"
+            [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+            [videoOptions]="videoOptions"
+            [imageQuality]="1"
+            (cameraSwitched)="cameraWasSwitched($event)"
+            (initError)="handleInitError($event)"
+    ></webcam>
+    <br/>
+    <br/>
+    <div class="row">
+      <div class="container">
+        <div class="item">
+          <button mat-raised-button color="primary" class="actionBtn" (click)="triggerSnapshot();">
+            Take A Snapshot
+          </button>
+        </div>
+
+        <div class="item" *ngIf="webcamImage">
+          <div class="snapshot" (click)="scrollToTheImage()">
+            <mat-icon class="preview-image">keyboard_arrow_down</mat-icon>
+            <img height="46" [src]="webcamImage.imageAsDataUrl"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br/>
+    <br/>
+
+  </div>
+</div>
+<div id="bottom-info-container">
+  <div id="snapshot" class="snapshot" *ngIf="webcamImage">
+    <h2>Nice one!</h2>
+    <img [src]="webcamImage.imageAsDataUrl"/>
+  </div>
+  <ul *ngIf="webcamImage">
+    <a href="{{this.imgServerURL}}">{{this.imgServerURL}}</a>
+  </ul>
+  <h4 *ngIf="errors.length > 0">Messages:</h4>
+  <ul *ngFor="let error of errors">
+    <li>{{error | json}}</li>
+  </ul>
+</div>
+

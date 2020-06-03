@@ -1,0 +1,39 @@
+<mat-toolbar color="primary" class="mat-toolbar">
+
+  <mat-toolbar-row>
+
+      <button mat-icon-button (click)="navComponent.drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+
+    <span class="toolbar-title no-outline" routerLink="/"> {{ APP_TOOLBAR_TITLE }} </span>
+
+
+    <div style="width: 100%; " fxLayoutAlign="flex-end" >
+
+        <ul fxLayoutGap="10px" >
+          <button mat-icon-button routerLink="/settings">
+            <mat-icon>settings</mat-icon>
+          </button>
+
+          <button mat-icon-button routerLink="/settings">
+            <mat-icon>help_outline</mat-icon>
+          </button>
+
+          <button mat-icon-button [matMenuTriggerFor]="auth">
+            <mat-icon>person_outline</mat-icon>
+          </button>
+          <mat-menu #auth="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Sign out</span>
+            </button>
+          </mat-menu>
+        </ul>
+
+    </div>
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
