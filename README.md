@@ -1,10 +1,15 @@
 # Capture Darts Scores
 
-This darts app is aiming to capture screenshots from a dartboard in order to analyze the corresponding score.
+This app is accessing the camera through the browser in order to take photos and upload them to a server.
+The idea and use case behind the app is to be able to do image processing on the server side.
 
-This is a sample screenshot from a dartboard (taken through the angular app):
+A further repository will be linked here once it is created with the purpose of analyzing darts scores.
+
+This is a sample photo from a dartboard (taken through the angular app):
 
 ![example dartboard capture](api/samples/screenshot_mobile.jpeg)
+
+
 
 
 ## How to setup the project:
